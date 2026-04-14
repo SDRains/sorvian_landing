@@ -14,16 +14,192 @@ import {
     Check,
     ArrowRight,
     Play,
+    Sparkles,
     EyeOff,
     Fingerprint,
     Ban,
     AlertTriangle,
     XCircle,
+    Building2,
+    Layers,
+    Workflow,
+    Plug,
 } from "lucide-react";
 import Navigation from "./components/navigation";
 import Footer from "./components/footer";
 import HomeHero from "./components/home/HomeHero";
 
+
+// What Is Sorvian Section
+function WhatIsSorvianSection() {
+    const pillars = [
+        {
+            icon: Layers,
+            title: "Middleware, Not Another RAG Tool",
+            description:
+                "Sorvian is the security and data layer that sits beneath any AI workflow — not a vertical app competing for your attention.",
+        },
+        {
+            icon: Workflow,
+            title: "Universal by Design",
+            description:
+                "Works with any AI system, any tool, and any data source. Swap models, add integrations, evolve stacks.",
+        },
+        {
+            icon: Plug,
+            title: "Pipeline-First IP",
+            description:
+                "Our proprietary distillation pipeline is the core product. Everything else — RAG, analyzer, security — is built on top of it.",
+        },
+    ];
+
+    return (
+        <section id="what" className="relative py-28 bg-white overflow-hidden">
+            {/* Background accents */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-emerald-100 rounded-full blur-3xl opacity-50" />
+                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-teal-100 rounded-full blur-3xl opacity-50" />
+            </div>
+
+            <div className="relative z-10 max-w-7xl mx-auto px-6">
+                {/* Section Header */}
+                <div className="text-center mb-16 max-w-3xl mx-auto">
+                    <div className="inline-flex items-center gap-2 bg-emerald-100 rounded-full px-4 py-2 mb-6">
+                        <Sparkles className="w-4 h-4 text-emerald-600" />
+                        <span className="text-sm text-emerald-700 font-medium">
+                            What is Sorvian?
+                        </span>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-6 tracking-tight leading-[1.1]">
+                        The Intelligent Middleware
+                        <br />
+                        <span className="bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 bg-clip-text text-transparent">
+                            Between Your Data and AI
+                        </span>
+                    </h2>
+                    <p className="text-lg text-zinc-600 leading-relaxed">
+                        Sorvian sits between your organization&apos;s data and public AI models.
+                        Our proprietary distillation pipeline ingests, parses, anonymizes, and
+                        vectorizes everything — so only safe, derived content ever reaches an
+                        external model, and your raw data never leaves your control.
+                    </p>
+                </div>
+
+                {/* Three-Step Flow */}
+                <div className="relative max-w-6xl mx-auto mb-16">
+                    <div className="grid md:grid-cols-[1fr_auto_1.15fr_auto_1fr] items-stretch gap-4 md:gap-2">
+                        {/* Step 1: Your Organization */}
+                        <div className="group relative bg-zinc-50 border border-zinc-200 rounded-2xl p-7 hover:border-zinc-300 hover:shadow-lg transition-all duration-300">
+                            <div className="absolute top-0 left-6 right-6 h-1 bg-gradient-to-r from-zinc-300 to-zinc-400 rounded-b-full" />
+                            <div className="w-12 h-12 rounded-xl bg-zinc-200 flex items-center justify-center mb-5">
+                                <Building2 className="w-6 h-6 text-zinc-700" />
+                            </div>
+                            <p className="text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-2">
+                                Step 1
+                            </p>
+                            <h3 className="text-xl font-bold text-zinc-900 mb-3">
+                                Your Organization
+                            </h3>
+                            <p className="text-sm text-zinc-600 leading-relaxed">
+                                All documents, data, PII, and proprietary IP stay inside your
+                                environment. Nothing is pre-shipped to a vendor.
+                            </p>
+                        </div>
+
+                        {/* Arrow 1 */}
+                        <div className="hidden md:flex flex-col items-center justify-center px-2">
+                            <ArrowRight className="w-6 h-6 text-emerald-500" />
+                            <span className="text-[10px] font-semibold tracking-widest uppercase text-zinc-500 mt-2 whitespace-nowrap">
+                                All data ingested
+                            </span>
+                        </div>
+
+                        {/* Step 2: Sorvian (highlighted) */}
+                        <div className="group relative bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-7 shadow-2xl shadow-emerald-500/30">
+                            <div className="absolute top-0 left-6 right-6 h-1 bg-white/60 rounded-b-full" />
+                            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-emerald-400/50 to-cyan-400/50 blur-xl opacity-50 -z-10" />
+                            <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-5 ring-1 ring-white/30">
+                                <Shield className="w-6 h-6 text-white" />
+                            </div>
+                            <p className="text-xs font-semibold tracking-widest uppercase text-emerald-100 mb-2">
+                                Step 2
+                            </p>
+                            <h3 className="text-xl font-bold text-white mb-3">
+                                Sorvian Middleware
+                            </h3>
+                            <p className="text-sm text-emerald-50 leading-relaxed">
+                                Parses and organizes data locally. Strips PII, anonymizes IP,
+                                and classifies sensitivity — then sends only safe, derived
+                                content onward.
+                            </p>
+                        </div>
+
+                        {/* Arrow 2 */}
+                        <div className="hidden md:flex flex-col items-center justify-center px-2">
+                            <ArrowRight className="w-6 h-6 text-emerald-500" />
+                            <span className="text-[10px] font-semibold tracking-widest uppercase text-zinc-500 mt-2 whitespace-nowrap">
+                                Only safe content
+                            </span>
+                        </div>
+
+                        {/* Step 3: Public AI Models */}
+                        <div className="group relative bg-zinc-50 border border-zinc-200 rounded-2xl p-7 hover:border-zinc-300 hover:shadow-lg transition-all duration-300">
+                            <div className="absolute top-0 left-6 right-6 h-1 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-b-full" />
+                            <div className="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center mb-5">
+                                <Cloud className="w-6 h-6 text-indigo-600" />
+                            </div>
+                            <p className="text-xs font-semibold tracking-widest uppercase text-zinc-500 mb-2">
+                                Step 3
+                            </p>
+                            <h3 className="text-xl font-bold text-zinc-900 mb-3">
+                                Public AI Models
+                            </h3>
+                            <p className="text-sm text-zinc-600 leading-relaxed">
+                                Receives context-rich queries without sensitive data. Frontier
+                                models deliver powerful, informed answers back through Sorvian.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Mobile flow indicators */}
+                    <div className="md:hidden flex flex-col items-center gap-2 mt-6 text-xs font-semibold tracking-widest uppercase text-zinc-500">
+                        <span>Your data → Sorvian → Safe queries out</span>
+                    </div>
+                </div>
+
+                {/* Result Callout */}
+                <div className="max-w-4xl mx-auto text-center mb-20">
+                    <p className="text-xl md:text-2xl text-zinc-900 font-medium leading-snug">
+                        Your AI gets the{" "}
+                        <span className="text-emerald-600">full picture</span>.
+                        Your sensitive data{" "}
+                        <span className="text-emerald-600">never leaves your control</span>.
+                    </p>
+                </div>
+
+                {/* Pillars */}
+                <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    {pillars.map((pillar, i) => (
+                        <div
+                            key={i}
+                            className="group relative bg-zinc-50 border border-zinc-200 rounded-2xl p-6 hover:border-emerald-300 hover:bg-white hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300"
+                        >
+                            <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mb-4 group-hover:bg-emerald-500 transition-colors">
+                                <pillar.icon className="w-5 h-5 text-emerald-600 group-hover:text-white transition-colors" />
+                            </div>
+                            <h4 className="text-base font-semibold text-zinc-900 mb-2">
+                                {pillar.title}
+                            </h4>
+                            <p className="text-sm text-zinc-600 leading-relaxed">
+                                {pillar.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
 
 // Connection Web Section Component
 function ConnectionWebSection() {
@@ -1262,6 +1438,7 @@ export default function HomePage() {
         <main className="bg-zinc-950">
             <Navigation />
             <HomeHero />
+            <WhatIsSorvianSection />
             <ProblemSection />
             <SecurityArchitectureSection />
             {/*<ConnectionWebSection />*/}
