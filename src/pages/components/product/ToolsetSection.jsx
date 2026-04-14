@@ -343,13 +343,6 @@ function ToolsetSection() {
                                 {/* Text column */}
                                 <div className={tool.flipped ? "md:order-2" : ""}>
                                     <div
-                                        className={`inline-flex items-center gap-2 border ${a.chip} rounded-full px-3 py-1 mb-5`}
-                                    >
-                                        <span className="text-[10px] font-semibold tracking-widest uppercase">
-                                            {tool.eyebrow}
-                                        </span>
-                                    </div>
-                                    <div
                                         className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${a.icon} shadow-lg flex items-center justify-center mb-5`}
                                     >
                                         <tool.icon className="w-7 h-7 text-white" />

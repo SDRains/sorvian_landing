@@ -5,6 +5,8 @@ import Footer from "./components/footer";
 import ProductHero from "./components/product/ProductHero";
 import PipelineSection from "./components/product/PipelineSection";
 import ToolsetSection from "./components/product/ToolsetSection";
+import IntegrationsSection from "./components/product/IntegrationsSection";
+import ProductCTA from "./components/product/ProductCTA";
 
 export default function ProductPage() {
     return (
@@ -13,6 +15,8 @@ export default function ProductPage() {
             <ProductHero />
             <PipelineSection />
             <ToolsetSection />
+            <IntegrationsSection />
+            <ProductCTA />
             <Footer />
         </main>
     );

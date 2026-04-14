@@ -1,89 +1,34 @@
 "use client";
 
 import {
-    FileText,
-    Cpu,
-    Tags,
-    ShieldCheck,
-    Database,
-    Search,
     Layers,
     ArrowRight,
-    Check,
+    ShieldCheck,
+    Lock,
+    Building2,
+    Cloud,
+    Sparkles,
 } from "lucide-react";
 
-const stages = [
+const capabilityGroups = [
     {
-        number: "01",
-        icon: FileText,
-        title: "Ingest",
-        subtitle: "Any file, any format",
+        eyebrow: "Understanding",
+        title: "Multi-Model Comprehension",
         description:
-            "Documents flow in from OneDrive, SharePoint, Google Drive, Jira, Slack, and Teams — PDFs, Word, Excel, PowerPoint, images, code, contracts. MIME-routed to the right parser.",
-        outputs: ["Normalized text", "Embedded object manifest", "File metadata"],
+            "A coordinated ensemble of models reads every document the way a subject-matter expert would — capturing structure, intent, and meaning, not just text.",
     },
     {
-        number: "02",
-        icon: Cpu,
-        title: "Structural Extraction",
-        subtitle: "Understand the shape",
+        eyebrow: "Protection",
+        title: "Automated Governance",
         description:
-            "Local models identify the document's structure: title, section headers, type, language, and whether it contains tables, images, or code. Fast, deterministic, schema-driven.",
-        outputs: ["Document type", "Header hierarchy", "Structural flags"],
+            "Sensitive material is identified, classified, and transformed before it ever approaches the trust boundary. Governance is enforced inside the pipeline, not in a downstream policy layer.",
     },
-    {
-        number: "03",
-        icon: Tags,
-        title: "Semantic Extraction",
-        subtitle: "Derive the meaning",
-        description:
-            "The heavy pass: summaries, keywords, topics, tone, audience, anticipated questions. The pipeline already knows the document type, so interpretation is grounded in context.",
-        outputs: [
-            "Document + section summaries",
-            "Keywords & topics",
-            "Possible user questions",
-        ],
-    },
-    {
-        number: "04",
-        icon: ShieldCheck,
-        title: "Entity & Sensitivity",
-        subtitle: "Extract and classify",
-        description:
-            "Named entities, dates, metrics, action items, monetary values, and document references are extracted — and every artifact is tagged with a sensitivity level so downstream queries know what to redact.",
-        outputs: ["Named entities", "Sensitivity tags", "Action items & metrics"],
-    },
-    {
-        number: "05",
-        icon: Layers,
-        title: "Chunk",
-        subtitle: "Split with context",
-        description:
-            "Documents are split along natural section boundaries with token-aware sizing and overlap. Every chunk carries metadata from the prior stages so it travels with its own context.",
-        outputs: ["Token-sized chunks", "Section-aware boundaries", "Enriched metadata"],
-    },
-    {
-        number: "06",
-        icon: Database,
-        title: "Embed & Store",
-        subtitle: "Vector-ready",
-        description:
-            "Chunks, summaries, and anticipated questions are embedded into a pgvector database. Filterable metadata lives in SQL columns for precise, hybrid retrieval.",
-        outputs: ["Chunk embeddings", "Supplementary embeddings", "Filterable metadata"],
-    },
-    {
-        number: "07",
-        icon: Search,
-        title: "Query Securely",
-        subtitle: "Sanitized reasoning",
-        description:
-            "At query time, Sorvian assembles a sanitized, anonymized prompt from derived artifacts and sends it to the frontier model of your choice. Raw sources never leave your walls.",
-        outputs: [
-            "Role-scoped retrieval",
-            "PII-stripped prompts",
-            "Reconstructed responses",
-        ],
-    },
+    // {
+    //     eyebrow: "Retrieval",
+    //     title: "Query-Ready Intelligence",
+    //     description:
+    //         "The output is a rich, queryable layer designed to feed any frontier model on demand — with access controls, role scoping, and audit built in from the start.",
+    // },
 ];
 
 function PipelineSection() {
@@ -105,83 +50,154 @@ function PipelineSection() {
                         </span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-6 tracking-tight leading-[1.1]">
-                        Seven Stages.
+                        Raw Data In.
                         <br />
-                        <span className="text-zinc-500">One Secure Artifact Per Document.</span>
+                        <span className="text-zinc-500">Safe Intelligence Out.</span>
                     </h2>
                     <p className="text-lg text-zinc-600 leading-relaxed">
-                        The distillation pipeline is Sorvian&apos;s core IP — a universal
-                        middleware that turns raw, sensitive documents into safe, queryable
-                        knowledge without ever sending originals to a public model.
+                        The distillation pipeline is Sorvian&apos;s core IP — a proprietary
+                        middleware that transforms sensitive organizational data into a
+                        queryable knowledge layer any frontier model can safely reason
+                        over. The mechanics stay with us. The guarantees stay with you.
                     </p>
                 </div>
 
-                {/* Pipeline vertical timeline */}
-                <div className="max-w-5xl mx-auto">
-                    {stages.map((stage, i) => {
-                        const isLast = i === stages.length - 1;
-                        return (
-                            <div key={i} className="relative">
-                                {/* Connector line */}
-                                {!isLast && (
-                                    <div className="absolute left-[23px] md:left-[27px] top-14 bottom-[-2rem] w-0.5 bg-gradient-to-b from-emerald-300 to-emerald-100" />
-                                )}
-
-                                <div className="flex gap-5 md:gap-7 mb-8 group">
-                                    {/* Number + Icon column */}
-                                    <div className="flex flex-col items-center flex-shrink-0 relative z-10">
-                                        <div className="relative">
-                                            <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/30 group-hover:shadow-xl group-hover:shadow-emerald-500/40 transition-all">
-                                                <stage.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
-                                            </div>
-                                            <div className="absolute -top-1 -right-1 bg-white border-2 border-emerald-500 rounded-full w-6 h-6 flex items-center justify-center">
-                                                <span className="text-[10px] font-bold text-emerald-600">
-                                                    {stage.number}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Content card */}
-                                    <div className="flex-1 bg-zinc-50 border border-zinc-200 rounded-2xl p-6 md:p-7 group-hover:border-emerald-300 group-hover:bg-white group-hover:shadow-xl group-hover:shadow-emerald-500/5 transition-all duration-300">
-                                        <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
-                                            <h3 className="text-xl md:text-2xl font-bold text-zinc-900">
-                                                {stage.title}
-                                            </h3>
-                                            <p className="text-sm text-emerald-600 font-medium">
-                                                {stage.subtitle}
-                                            </p>
-                                        </div>
-                                        <p className="text-zinc-600 leading-relaxed mb-5">
-                                            {stage.description}
-                                        </p>
-
-                                        {/* Outputs */}
-                                        <div className="border-t border-zinc-200 pt-4">
-                                            <p className="text-[10px] font-semibold tracking-widest uppercase text-zinc-500 mb-3">
-                                                Stage Outputs
-                                            </p>
-                                            <div className="flex flex-wrap gap-2">
-                                                {stage.outputs.map((o, j) => (
-                                                    <span
-                                                        key={j}
-                                                        className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1 text-xs text-emerald-700"
-                                                    >
-                                                        <Check className="w-3 h-3" strokeWidth={3} />
-                                                        {o}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                {/* High-level flow: Input → Pipeline (opaque) → Output */}
+                <div className="max-w-6xl mx-auto mb-16 lg:mb-24">
+                    <div className="grid md:grid-cols-[1fr_auto_1.2fr_auto_1fr] items-stretch gap-4 md:gap-2">
+                        {/* Input: Your Data */}
+                        <div className="relative bg-zinc-50 border border-zinc-200 rounded-2xl p-6 flex flex-col">
+                            <div className="absolute top-0 left-6 right-6 h-1 bg-gradient-to-r from-zinc-300 to-zinc-400 rounded-b-full" />
+                            <div className="w-11 h-11 rounded-xl bg-zinc-200 flex items-center justify-center mb-4">
+                                <Building2 className="w-5 h-5 text-zinc-700" />
                             </div>
-                        );
-                    })}
+                            <p className="text-[10px] font-semibold tracking-widest uppercase text-zinc-500 mb-1">
+                                Input
+                            </p>
+                            <h3 className="text-lg font-bold text-zinc-900 mb-2">
+                                Your Organization&apos;s Data
+                            </h3>
+                            <p className="text-sm text-zinc-600 leading-relaxed">
+                                Documents, knowledge bases, tickets, and conversations —
+                                whatever format, wherever it lives.
+                            </p>
+                        </div>
+
+                        {/* Arrow */}
+                        <div className="hidden md:flex flex-col items-center justify-center px-2">
+                            <ArrowRight className="w-6 h-6 text-emerald-500" />
+                        </div>
+
+                        {/* The Pipeline (opaque, featured) */}
+                        <div className="relative bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-7 shadow-2xl shadow-emerald-500/30 overflow-hidden">
+                            {/* Abstract background texture */}
+                            <div
+                                className="absolute inset-0 opacity-20"
+                                style={{
+                                    backgroundImage:
+                                        "radial-gradient(circle at 20% 30%, rgba(255,255,255,0.4), transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.3), transparent 40%)",
+                                }}
+                            />
+                            <div
+                                className="absolute inset-0 opacity-10"
+                                style={{
+                                    backgroundImage:
+                                        "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+                                    backgroundSize: "24px 24px",
+                                }}
+                            />
+
+                            <div className="relative w-11 h-11 rounded-xl bg-white/20 backdrop-blur-sm ring-1 ring-white/30 flex items-center justify-center mb-4">
+                                <Sparkles className="w-5 h-5 text-white" />
+                            </div>
+                            <p className="relative text-[10px] font-semibold tracking-widest uppercase text-emerald-100 mb-1">
+                                The Distillation Pipeline
+                            </p>
+                            <h3 className="relative text-xl md:text-2xl font-bold text-white mb-2">
+                                Sorvian Middleware
+                            </h3>
+                            <p className="relative text-sm text-emerald-50 leading-relaxed">
+                                A multi-model pipeline that parses, protects, and prepares
+                                every artifact — running entirely before anything leaves
+                                your boundary.
+                            </p>
+
+                            {/* Floating mini-chips suggesting capability without sequence */}
+                            <div className="relative mt-4 flex flex-wrap gap-1.5">
+                                {["Comprehension", "Governance", "Retrieval"].map((t) => (
+                                    <span
+                                        key={t}
+                                        className="text-[10px] bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-2.5 py-0.5 text-white"
+                                    >
+                                        {t}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Arrow */}
+                        <div className="hidden md:flex flex-col items-center justify-center px-2">
+                            <ArrowRight className="w-6 h-6 text-emerald-500" />
+                        </div>
+
+                        {/* Output: Safe Intelligence */}
+                        <div className="relative bg-zinc-50 border border-zinc-200 rounded-2xl p-6 flex flex-col">
+                            <div className="absolute top-0 left-6 right-6 h-1 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-b-full" />
+                            <div className="w-11 h-11 rounded-xl bg-indigo-100 flex items-center justify-center mb-4">
+                                <Cloud className="w-5 h-5 text-indigo-600" />
+                            </div>
+                            <p className="text-[10px] font-semibold tracking-widest uppercase text-zinc-500 mb-1">
+                                Output
+                            </p>
+                            <h3 className="text-lg font-bold text-zinc-900 mb-2">
+                                Safe, Query-Ready Intelligence
+                            </h3>
+                            <p className="text-sm text-zinc-600 leading-relaxed">
+                                A sanitized, role-scoped layer frontier models can reason
+                                against — with your raw data left behind.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Capability groups (categorical, not sequential) */}
+                <div className="max-w-6xl mx-auto mb-16 grid grid-cols-2 gap-12 items-center">
+                    <div className="text-left mb-10">
+                        <p className="text-xs font-semibold tracking-widest uppercase text-emerald-600 mb-3">
+                            What the Pipeline Delivers
+                        </p>
+                        <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 mb-3">
+                            Depth without the tradeoff.
+                        </h3>
+                        <p className="text-zinc-600 leading-relaxed max-w-2xl mx-auto">
+                            Every document that flows through Sorvian emerges understood,
+                            protected, and ready for retrieval — governed by the same six
+                            security principles at every step.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                        {capabilityGroups.map((group, i) => (
+                            <div
+                                key={i}
+                                className="group relative bg-zinc-50 border border-zinc-200 rounded-2xl p-6 hover:border-emerald-300 hover:bg-white hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300"
+                            >
+                                <p className="text-[10px] font-semibold tracking-widest uppercase text-emerald-600 mb-2">
+                                    {group.eyebrow}
+                                </p>
+                                <h4 className="text-lg font-semibold text-zinc-900 mb-3">
+                                    {group.title}
+                                </h4>
+                                <p className="text-sm text-zinc-600 leading-relaxed">
+                                    {group.description}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Closing callout */}
-                <div className="max-w-4xl mx-auto mt-16">
+                <div className="max-w-4xl mx-auto">
                     <div className="relative rounded-3xl overflow-hidden border border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-teal-50 p-8 md:p-10">
                         <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
                             <div className="w-14 h-14 rounded-2xl bg-emerald-500 flex items-center justify-center flex-shrink-0">
@@ -189,21 +205,22 @@ function PipelineSection() {
                             </div>
                             <div className="flex-1">
                                 <p className="text-emerald-600 text-xs font-semibold tracking-widest uppercase mb-2">
-                                    The Result
+                                    The Tradeoff Nobody Else Makes
                                 </p>
                                 <p className="text-xl md:text-2xl text-zinc-900 font-medium leading-snug mb-2">
-                                    A queryable knowledge layer your AI can see —
+                                    We keep the recipe.
                                     <br className="hidden md:block" />
-                                    without any raw data your AI can&apos;t.
+                                    <span className="text-zinc-600">You keep the guarantees.</span>
                                 </p>
                                 <p className="text-zinc-600 leading-relaxed">
-                                    The pipeline runs once per document. The artifacts it produces
-                                    power every Sorvian tool and every frontier-model query that
-                                    follows — without ever re-exposing the source.
+                                    The pipeline&apos;s inner workings are proprietary — but its
+                                    behavior at the boundary is fully specified and auditable.
+                                    Our security page explains exactly what leaves your walls
+                                    and what never does.
                                 </p>
                             </div>
                         </div>
-                        <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                        <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3">
                             <a
                                 href="/security"
                                 className="inline-flex items-center justify-center gap-2 bg-emerald-500 text-white px-5 py-2.5 rounded-full font-medium hover:bg-emerald-600 transition-colors text-sm"
@@ -211,8 +228,8 @@ function PipelineSection() {
                                 Security Architecture
                                 <ArrowRight className="w-4 h-4" />
                             </a>
-                            <button className="inline-flex items-center justify-center gap-2 bg-white border border-zinc-300 text-zinc-700 px-5 py-2.5 rounded-full font-medium hover:bg-zinc-50 transition-colors text-sm">
-                                Read the Technical Spec
+                            <button className="cursor-pointer items-center justify-center gap-2 bg-white border border-zinc-300 text-zinc-700 px-5 py-2.5 rounded-full font-medium hover:bg-zinc-50 transition-colors text-sm">
+                                Request a Technical Briefing
                             </button>
                         </div>
                     </div>
