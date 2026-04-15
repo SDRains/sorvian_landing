@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import Navigation from "./components/navigation";
 import Footer from "./components/footer";
+import PageHead from "./components/PageHead";
 import HomeHero from "./components/home/HomeHero";
 
 
@@ -195,6 +196,17 @@ function WhatIsSorvianSection() {
                             </p>
                         </div>
                     ))}
+                </div>
+
+                {/* CTA to Product page */}
+                <div className="mt-14 text-center">
+                    <a
+                        href="/product"
+                        className="inline-flex items-center gap-2 bg-zinc-900 text-white px-6 py-3 rounded-full font-medium hover:bg-zinc-800 transition-all group"
+                    >
+                        Explore the Platform
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
                 </div>
             </div>
         </section>
@@ -1103,34 +1115,40 @@ function SecurityArchitectureSection() {
                     ))}
                 </div>
 
-                {/* Comparison Callout */}
-                <div className="max-w-5xl mx-auto bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-3xl p-10 md:p-12 border border-zinc-800">
-                    <div className="grid md:grid-cols-2 gap-10">
-                        <div>
-                            <p className="text-red-400 text-sm font-medium tracking-wide uppercase mb-3">
-                                Traditional RAG
-                            </p>
-                            <h3 className="text-2xl font-bold text-white mb-4">
-                                Ships your data to someone else&apos;s model.
-                            </h3>
-                            <p className="text-zinc-400 leading-relaxed">
-                                Raw documents are sent to external providers with minimal
-                                protection. Sensitive content sits in third-party databases
-                                under retention policies you don&apos;t write and can&apos;t audit.
-                            </p>
-                        </div>
-                        <div className="md:border-l md:border-zinc-800 md:pl-10">
-                            <p className="text-emerald-400 text-sm font-medium tracking-wide uppercase mb-3">
-                                The Sorvian Approach
-                            </p>
-                            <h3 className="text-2xl font-bold text-white mb-4">
-                                Your data informs the AI without ever leaving your control.
-                            </h3>
-                            <p className="text-zinc-300 leading-relaxed">
-                                The distillation pipeline processes everything before it crosses
-                                your boundary. Frontier models receive rich, derived queries —
-                                never raw source material, PII, or proprietary IP.
-                            </p>
+                {/* CTA to Security page */}
+                <div className="max-w-5xl mx-auto">
+                    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800 p-8 md:p-10">
+                        <div
+                            className="absolute inset-0 opacity-40"
+                            style={{
+                                backgroundImage:
+                                    "radial-gradient(circle at 85% 50%, rgba(16,185,129,0.2), transparent 55%)",
+                            }}
+                        />
+                        <div className="relative flex flex-col md:flex-row items-start md:items-center gap-6">
+                            <div className="w-14 h-14 rounded-2xl bg-emerald-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-500/30">
+                                <ShieldCheck className="w-7 h-7 text-zinc-950" />
+                            </div>
+                            <div className="flex-1">
+                                <p className="text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-2">
+                                    Go Deeper
+                                </p>
+                                <h3 className="text-2xl font-bold text-white mb-2 leading-tight">
+                                    The full security architecture, end to end.
+                                </h3>
+                                <p className="text-zinc-400 leading-relaxed">
+                                    Explore the trust boundary, access controls, deployment
+                                    security, and exactly what data crosses your walls — built
+                                    for security teams, procurement, and auditors.
+                                </p>
+                            </div>
+                            <a
+                                href="/security"
+                                className="inline-flex items-center justify-center gap-2 bg-emerald-500 text-zinc-950 px-5 py-3 rounded-full font-medium hover:bg-emerald-400 transition-colors text-sm whitespace-nowrap shadow-lg shadow-emerald-500/30"
+                            >
+                                Security Architecture
+                                <ArrowRight className="w-4 h-4" />
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1391,41 +1409,325 @@ function StatsSection() {
     );
 }
 
+// Tools Teaser Section (drives to /tools)
+function ToolsTeaserSection() {
+    const tools = [
+        {
+            icon: Search,
+            accent: "emerald",
+            eyebrow: "Tool 01",
+            title: "Knowledge Base RAG",
+            description:
+                "One knowledge base, two audiences — internal teams and customers. Role-scoped results. Full audit trail.",
+        },
+        {
+            icon: ShieldCheck,
+            accent: "indigo",
+            eyebrow: "Tool 02",
+            title: "Security Layer",
+            description:
+                "Automatic PII stripping, IP anonymization, and sensitivity classification on every query — enforced inside the pipeline.",
+        },
+        {
+            icon: FileText,
+            accent: "amber",
+            eyebrow: "Tool 03",
+            title: "Document Analyzer",
+            description:
+                "Ingest thousands of documents in any format. Auto-classified, vector-indexed, searchable in seconds.",
+        },
+    ];
+
+    const accents = {
+        emerald: { iconBg: "from-emerald-500 to-teal-600 shadow-emerald-500/30", eyebrow: "text-emerald-600", hoverBorder: "hover:border-emerald-300" },
+        indigo: { iconBg: "from-indigo-500 to-purple-600 shadow-indigo-500/30", eyebrow: "text-indigo-600", hoverBorder: "hover:border-indigo-300" },
+        amber: { iconBg: "from-amber-500 to-orange-600 shadow-amber-500/30", eyebrow: "text-amber-600", hoverBorder: "hover:border-amber-300" },
+    };
+
+    return (
+        <section className="relative py-28 bg-zinc-50 overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-emerald-100 rounded-full blur-3xl opacity-40" />
+                <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-amber-100 rounded-full blur-3xl opacity-30" />
+            </div>
+
+            <div className="relative z-10 max-w-7xl mx-auto px-6">
+                <div className="text-center mb-14 max-w-3xl mx-auto">
+                    <div className="inline-flex items-center gap-2 bg-emerald-100 rounded-full px-4 py-2 mb-6">
+                        <Workflow className="w-4 h-4 text-emerald-600" />
+                        <span className="text-sm text-emerald-700 font-medium">The Toolset</span>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-6 tracking-tight leading-[1.1]">
+                        Three Tools.
+                        <br />
+                        <span className="text-zinc-500">One Secure Foundation.</span>
+                    </h2>
+                    <p className="text-lg text-zinc-600 leading-relaxed">
+                        Knowledge Base RAG, Security Layer, and Document Analyzer — each
+                        powered by the same distillation pipeline and governed by the same
+                        six security principles.
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-6 mb-12">
+                    {tools.map((tool, i) => {
+                        const a = accents[tool.accent];
+                        return (
+                            <div
+                                key={i}
+                                className={`group bg-white border border-zinc-200 rounded-3xl p-7 ${a.hoverBorder} hover:shadow-xl hover:shadow-zinc-900/5 transition-all duration-300`}
+                            >
+                                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${a.iconBg} shadow-lg flex items-center justify-center mb-5`}>
+                                    <tool.icon className="w-6 h-6 text-white" />
+                                </div>
+                                <p className={`text-[10px] font-semibold tracking-widest uppercase ${a.eyebrow} mb-2`}>
+                                    {tool.eyebrow}
+                                </p>
+                                <h3 className="text-xl font-bold text-zinc-900 mb-3">
+                                    {tool.title}
+                                </h3>
+                                <p className="text-sm text-zinc-600 leading-relaxed">
+                                    {tool.description}
+                                </p>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                <div className="text-center">
+                    <a
+                        href="/tools"
+                        className="inline-flex items-center gap-2 bg-zinc-900 text-white px-6 py-3 rounded-full font-medium hover:bg-zinc-800 transition-all group"
+                    >
+                        See All Tools
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+// Pricing Teaser Section (drives to /pricing)
+function PricingTeaserSection() {
+    const tiers = [
+        {
+            icon: Cloud,
+            name: "Cloud",
+            price: "$",
+            tagline: "Fully managed on AWS",
+            description: "Fastest start, zero hardware, enterprise-grade by default.",
+            highlighted: true,
+        },
+        {
+            icon: Server,
+            name: "Standard",
+            price: "$$$",
+            tagline: "Hybrid / VPC ready",
+            description: "On-premise parsing with VPC integration, for IT-managed environments.",
+            highlighted: false,
+        },
+        {
+            icon: Lock,
+            name: "Fortress",
+            price: "$$$$",
+            tagline: "Fully local, air-gap capable",
+            description: "For sovereign, classified, or highest-compliance environments.",
+            highlighted: false,
+        },
+    ];
+
+    return (
+        <section className="relative py-28 bg-zinc-950 overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-3xl" />
+                <div
+                    className="absolute inset-0 opacity-[0.04]"
+                    style={{
+                        backgroundImage:
+                            "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+                        backgroundSize: "48px 48px",
+                    }}
+                />
+            </div>
+
+            <div className="relative z-10 max-w-7xl mx-auto px-6">
+                <div className="text-center mb-14 max-w-3xl mx-auto">
+                    <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-2 mb-6">
+                        <Sparkles className="w-4 h-4 text-emerald-400" />
+                        <span className="text-sm text-emerald-300 font-medium">Pricing</span>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-[1.1]">
+                        Three Tiers.
+                        <br />
+                        <span className="text-zinc-500">One Security Standard.</span>
+                    </h2>
+                    <p className="text-lg text-zinc-400 leading-relaxed">
+                        Start on Cloud for the fastest path to production. Step up to
+                        Standard or Fortress when policy demands on-premise.
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-5 mb-12">
+                    {tiers.map((t, i) => (
+                        <div
+                            key={i}
+                            className={`relative rounded-2xl p-6 border transition-all duration-300 ${
+                                t.highlighted
+                                    ? "bg-gradient-to-br from-emerald-500/10 via-zinc-900 to-zinc-950 border-emerald-500/40"
+                                    : "bg-zinc-900/60 border-zinc-800 hover:border-zinc-700"
+                            }`}
+                        >
+                            {t.highlighted && (
+                                <div className="absolute -top-3 left-6 bg-emerald-500 text-zinc-950 text-[10px] font-bold px-3 py-1 rounded-full tracking-widest uppercase">
+                                    Recommended
+                                </div>
+                            )}
+                            <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${t.highlighted ? "bg-emerald-500" : "bg-zinc-800 border border-zinc-700"}`}>
+                                <t.icon className={`w-5 h-5 ${t.highlighted ? "text-zinc-950" : "text-zinc-300"}`} />
+                            </div>
+                            <div className="flex items-baseline gap-2 mb-1">
+                                <h3 className="text-xl font-bold text-white">{t.name}</h3>
+                                <span className={`text-sm font-semibold ${t.highlighted ? "text-emerald-400" : "text-zinc-500"}`}>
+                                    {t.price}
+                                </span>
+                            </div>
+                            <p className={`text-[10px] font-semibold tracking-widest uppercase mb-3 ${t.highlighted ? "text-emerald-400" : "text-zinc-500"}`}>
+                                {t.tagline}
+                            </p>
+                            <p className="text-sm text-zinc-400 leading-relaxed">
+                                {t.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="text-center">
+                    <a
+                        href="/pricing"
+                        className="inline-flex items-center gap-2 bg-emerald-500 text-zinc-950 px-6 py-3 rounded-full font-medium hover:bg-emerald-400 transition-all group shadow-lg shadow-emerald-500/30"
+                    >
+                        Compare All Tiers
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                </div>
+            </div>
+        </section>
+    );
+}
+
 // CTA Section
 function CTASection() {
     return (
-        <section id="contact" className="relative py-32 bg-white overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-50">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-100 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-100 rounded-full blur-3xl" />
+        <section className="relative py-28 bg-white overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-100 rounded-full blur-3xl opacity-60" />
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal-100 rounded-full blur-3xl opacity-60" />
             </div>
 
-            <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-                <div className="inline-flex items-center gap-2 bg-emerald-100 rounded-full px-4 py-2 mb-8">
-                    <Shield className="w-4 h-4 text-emerald-600" />
-                    <span className="text-sm text-emerald-700 font-medium">
-            Ready to secure your AI?
-          </span>
+            <div className="relative z-10 max-w-6xl mx-auto px-6">
+                <div className="text-center mb-12 max-w-3xl mx-auto">
+                    <div className="inline-flex items-center gap-2 bg-emerald-100 rounded-full px-4 py-2 mb-6">
+                        <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                        <span className="text-sm text-emerald-700 font-medium">
+                            Ready to unlock enterprise AI?
+                        </span>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 mb-6 tracking-tight leading-[1.05]">
+                        Full AI Capability.
+                        <br />
+                        <span className="bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 bg-clip-text text-transparent">
+                            Zero Data Exposure.
+                        </span>
+                    </h2>
+                    <p className="text-lg text-zinc-600 leading-relaxed">
+                        Book a demo and we&apos;ll walk through the pipeline, answer your
+                        security questions, and help you pick the deployment path that
+                        fits your environment.
+                    </p>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-6 tracking-tight">
-                    Let&apos;s Discuss How Sorvian
-                    <br />
-                    Can Secure Your AI Strategy
-                </h2>
-                <p className="text-lg text-zinc-600 mb-10 max-w-2xl mx-auto">
-                    Book a demo to see how Sorvian can protect your data while unlocking
-                    full AI capability for your organization.
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button className="bg-zinc-900 text-white px-8 py-4 rounded-full font-medium hover:bg-zinc-800 transition-all flex items-center gap-2 group">
-                        Book a Demo
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <button className="text-zinc-600 hover:text-zinc-900 font-medium flex items-center gap-2">
-                        <Play className="w-5 h-5" />
-                        Watch Video
-                    </button>
+
+                {/* Primary CTA card */}
+                <div className="max-w-4xl mx-auto mb-10">
+                    <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800 p-8 md:p-10">
+                        <div
+                            className="absolute inset-0 opacity-40"
+                            style={{
+                                backgroundImage:
+                                    "radial-gradient(circle at 50% 0%, rgba(16,185,129,0.25), transparent 60%)",
+                            }}
+                        />
+                        <div className="relative grid md:grid-cols-[1fr_auto] gap-8 items-center">
+                            <div>
+                                <p className="text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-3">
+                                    Start the Conversation
+                                </p>
+                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
+                                    30 minutes. Your environment scoped.
+                                </h3>
+                                <p className="text-zinc-400 leading-relaxed">
+                                    We&apos;ll review your data sources, talk through security
+                                    posture, and show you a role-scoped query in your first call.
+                                </p>
+                            </div>
+                            <div className="flex flex-col gap-3 md:min-w-[200px]">
+                                <a
+                                    href="/contact"
+                                    className="cursor-pointer bg-emerald-500 text-zinc-950 px-6 py-4 rounded-full font-semibold hover:bg-emerald-400 transition-all flex items-center justify-center gap-2 group shadow-lg shadow-emerald-500/30"
+                                >
+                                    Book a Demo
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </a>
+                                <a
+                                    href="/pricing"
+                                    className="cursor-pointer bg-zinc-800/80 backdrop-blur-sm border border-zinc-700 text-white px-6 py-4 rounded-full font-medium hover:bg-zinc-700 transition-all flex items-center justify-center gap-2"
+                                >
+                                    See Pricing
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Quick nav row */}
+                <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                    <a
+                        href="/product"
+                        className="group bg-zinc-50 border border-zinc-200 rounded-2xl p-5 hover:border-emerald-300 hover:bg-white transition-all"
+                    >
+                        <p className="text-xs font-semibold tracking-widest uppercase text-emerald-600 mb-1">
+                            Product
+                        </p>
+                        <p className="font-semibold text-zinc-900 flex items-center gap-2">
+                            The platform in depth
+                            <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-all" />
+                        </p>
+                    </a>
+                    <a
+                        href="/security"
+                        className="group bg-zinc-50 border border-zinc-200 rounded-2xl p-5 hover:border-emerald-300 hover:bg-white transition-all"
+                    >
+                        <p className="text-xs font-semibold tracking-widest uppercase text-emerald-600 mb-1">
+                            Security
+                        </p>
+                        <p className="font-semibold text-zinc-900 flex items-center gap-2">
+                            Six principles, end to end
+                            <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-all" />
+                        </p>
+                    </a>
+                    <a
+                        href="/contact"
+                        className="group bg-zinc-50 border border-zinc-200 rounded-2xl p-5 hover:border-emerald-300 hover:bg-white transition-all"
+                    >
+                        <p className="text-xs font-semibold tracking-widest uppercase text-emerald-600 mb-1">
+                            Contact
+                        </p>
+                        <p className="font-semibold text-zinc-900 flex items-center gap-2">
+                            Talk to the team
+                            <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-all" />
+                        </p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1436,17 +1738,18 @@ function CTASection() {
 export default function HomePage() {
     return (
         <main className="bg-zinc-950">
+            <PageHead
+                name="Secure AI for the Enterprise"
+                description="Sorvian is the intelligent middleware between your enterprise data and public AI models. Full AI capability, zero sensitive data exposure, up to 85% cost reduction on document processing."
+                path="/"
+            />
             <Navigation />
             <HomeHero />
             <WhatIsSorvianSection />
             <ProblemSection />
             <SecurityArchitectureSection />
-            {/*<ConnectionWebSection />*/}
-            {/*<WhySorvianSection />*/}
-            {/*<HowItWorksSection />*/}
-            {/*<ToolsSection />*/}
-            {/*<DeploymentSection />*/}
-            {/*<StatsSection />*/}
+            <ToolsTeaserSection />
+            <PricingTeaserSection />
             <CTASection />
             <Footer />
         </main>

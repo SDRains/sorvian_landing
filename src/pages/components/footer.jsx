@@ -40,22 +40,22 @@ function Footer() {
                         <h4 className="text-white font-semibold mb-4">Product</h4>
                         <ul className="space-y-3">
                             <li>
-                                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
+                                <a href="/product" className="text-zinc-400 hover:text-white transition-colors">
                                     Features
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
+                                <a href="/tools" className="text-zinc-400 hover:text-white transition-colors">
                                     Tools
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
+                                <a href="/pricing" className="text-zinc-400 hover:text-white transition-colors">
                                     Pricing
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
+                                <a href="/security" className="text-zinc-400 hover:text-white transition-colors">
                                     Security
                                 </a>
                             </li>
@@ -66,22 +66,22 @@ function Footer() {
                         <h4 className="text-white font-semibold mb-4">Company</h4>
                         <ul className="space-y-3">
                             <li>
-                                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
+                                <a href="/about" className="text-zinc-400 hover:text-white transition-colors">
                                     About
                                 </a>
                             </li>
+                            {/*<li>*/}
+                            {/*    <a href="#" className="text-zinc-400 hover:text-white transition-colors">*/}
+                            {/*        Blog*/}
+                            {/*    </a>*/}
+                            {/*</li>*/}
                             <li>
-                                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
-                                    Blog
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
+                                <a href="/careers" className="text-zinc-400 hover:text-white transition-colors">
                                     Careers
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
+                                <a href="/contact" className="text-zinc-400 hover:text-white transition-colors">
                                     Contact
                                 </a>
                             </li>

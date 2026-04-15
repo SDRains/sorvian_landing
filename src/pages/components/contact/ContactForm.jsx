@@ -242,11 +242,11 @@ function ContactForm() {
                     {/* Side info column */}
                     <div className="space-y-5">
                         {/* Response time */}
-                        <div className="bg-gradient-to-br from-emerald-500/10 via-zinc-900 to-zinc-950 border border-emerald-500/30 rounded-3xl p-6 md:p-7 text-white">
+                        <div className="bg-gradient-to-br from-emerald-500 to-emerald-950 border rounded-3xl p-6 md:p-7 text-white">
                             <div className="w-11 h-11 rounded-xl bg-emerald-500 flex items-center justify-center mb-4 shadow-lg shadow-emerald-500/30">
-                                <Clock className="w-5 h-5 text-zinc-950" />
+                                <Clock className="w-5 h-5 text-white" />
                             </div>
-                            <p className="text-[10px] font-semibold tracking-widest uppercase text-emerald-400 mb-2">
+                            <p className="text-[10px] font-semibold tracking-widest uppercase text-emerald-200 mb-2">
                                 Response Time
                             </p>
                             <h3 className="text-xl font-bold mb-2">
