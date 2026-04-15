@@ -47,7 +47,7 @@ function Navigation() {
                             Pricing
                         </a>
                         <a
-                            href="#contact"
+                            href="/contact"
                             className="text-zinc-200 hover:text-emerald-500 transition-colors"
                         >
                             Contact
@@ -98,7 +98,7 @@ function Navigation() {
                             <a href="/pricing" className="text-zinc-400 hover:text-white">
                                 Pricing
                             </a>
-                            <a href="#contact" className="text-zinc-400 hover:text-white">
+                            <a href="/contact" className="text-zinc-400 hover:text-white">
                                 Contact
                             </a>
                             <hr className="border-white/10" />

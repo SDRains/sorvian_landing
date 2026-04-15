@@ -5,6 +5,7 @@ import Footer from "./components/footer";
 import PricingHero from "./components/pricing/PricingHero";
 import PricingTiers from "./components/pricing/PricingTiers";
 import CloudDeepDive from "./components/pricing/CloudDeepDive";
+import CustomEnterpriseSection from "./components/pricing/CustomEnterpriseSection";
 
 export default function PricingPage() {
     return (
@@ -13,6 +14,7 @@ export default function PricingPage() {
             <PricingHero />
             <PricingTiers />
             <CloudDeepDive />
+            <CustomEnterpriseSection />
             <Footer />
         </main>
     );
