@@ -18,9 +18,9 @@ const principles = [
         description:
             "No original documents, PII, or proprietary IP is ever sent to public AI models.",
         details: [
-            "Every outbound request is intercepted and sanitized",
-            "Raw source material never crosses the trust boundary",
-            "Enforced at the pipeline layer — not an optional policy",
+            "Original content never crosses the trust boundary — under any configuration",
+            "Every outbound call is inspected and recorded",
+            "A guarantee of the platform, not an optional policy setting",
         ],
     },
     {
@@ -30,9 +30,9 @@ const principles = [
         description:
             "Parsing, anonymization, and classification happen before anything crosses your boundary.",
         details: [
-            "Mid-range local LLMs handle the heavy ingestion work",
-            "Sensitivity classification runs before any egress",
-            "Available on Cloud (isolated AWS), Standard (VPC), and Fortress (air-gap)",
+            "All sensitive handling completes before any egress",
+            "Applies to both Sorvian Cloud and On-Premise deployments equally",
+            "No raw content reaches a frontier model in any mode",
         ],
     },
     {
@@ -42,9 +42,9 @@ const principles = [
         description:
             "External models receive sanitized summaries, anonymized queries, and stripped context.",
         details: [
-            "Frontier models see a derived view — never the source",
-            "Summaries, embeddings, and entities replace raw payloads",
-            "Query-time context is assembled from sanitized artifacts",
+            "Frontier models receive a role-scoped, sanitized view — never the source",
+            "Raw source material is never substituted by its derivatives",
+            "Context is assembled against the boundary, not shipped across it",
         ],
     },
     {
@@ -66,9 +66,9 @@ const principles = [
         description:
             "Personal and sensitive information is identified and removed before egress.",
         details: [
-            "Names, emails, IDs, and financial details are detected",
-            "Pattern-based and model-based detection working in concert",
-            "Sensitivity classification is logged for every artifact",
+            "Personal, financial, and identity signals are caught on every query",
+            "Sensitive fields are removed or masked before anything leaves",
+            "Every decision is logged for audit and replay",
         ],
     },
     {
@@ -78,9 +78,9 @@ const principles = [
         description:
             "Trade secrets and proprietary logic are transformed before any external query.",
         details: [
-            "Internal codenames, identifiers, and IP are rewritten",
-            "Domain-specific entities are anonymized in context",
-            "Original references are reconstructed on the response path",
+            "Proprietary identifiers, codenames, and trade secrets are masked",
+            "Anonymization is applied in context — not as a blanket pattern match",
+            "Frontier models never see original references to protected IP",
         ],
     },
 ];

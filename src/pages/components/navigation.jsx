@@ -35,13 +35,13 @@ function Navigation() {
                             Security
                         </a>
                         <a
-                            href="#tools"
+                            href="/tools"
                             className="text-zinc-200 hover:text-emerald-500 transition-colors"
                         >
                             Tools
                         </a>
                         <a
-                            href="#pricing"
+                            href="/pricing"
                             className="text-zinc-200 hover:text-emerald-500 transition-colors"
                         >
                             Pricing
@@ -92,10 +92,10 @@ function Navigation() {
                             <a href="/security" className="text-zinc-400 hover:text-white">
                                 Security
                             </a>
-                            <a href="#tools" className="text-zinc-400 hover:text-white">
+                            <a href="/tools" className="text-zinc-400 hover:text-white">
                                 Tools
                             </a>
-                            <a href="#pricing" className="text-zinc-400 hover:text-white">
+                            <a href="/pricing" className="text-zinc-400 hover:text-white">
                                 Pricing
                             </a>
                             <a href="#contact" className="text-zinc-400 hover:text-white">

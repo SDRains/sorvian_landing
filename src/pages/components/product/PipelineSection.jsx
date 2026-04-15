@@ -161,8 +161,8 @@ function PipelineSection() {
                 </div>
 
                 {/* Capability groups (categorical, not sequential) */}
-                <div className="max-w-6xl mx-auto mb-16 grid grid-cols-2 gap-12 items-center">
-                    <div className="text-left mb-10">
+                <div className="max-w-6xl mx-auto mb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div className="text-left mb-0 lg:mb-10">
                         <p className="text-xs font-semibold tracking-widest uppercase text-emerald-600 mb-3">
                             What the Pipeline Delivers
                         </p>
