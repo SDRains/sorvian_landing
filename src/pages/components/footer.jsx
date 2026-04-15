@@ -107,7 +107,7 @@ function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
+                                <a href="/contact" className="text-zinc-400 hover:text-white transition-colors">
                                     Support
                                 </a>
                             </li>
