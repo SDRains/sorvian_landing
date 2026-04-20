@@ -58,40 +58,42 @@ function TrustBoundarySection() {
                 </div>
 
                 {/* Two-column split */}
-                <div className="relative grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-0 items-stretch max-w-6xl mx-auto">
+                <div className="relative grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-0 max-w-6xl mx-auto items-center">
                     {/* Left: What Stays */}
-                    <div className="relative bg-gradient-to-br from-emerald-500/10 to-zinc-900 border border-emerald-500/30 rounded-3xl p-8 md:p-10">
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className="w-11 h-11 rounded-xl bg-emerald-500/20 flex items-center justify-center ring-1 ring-emerald-500/30">
-                                <Shield className="w-5 h-5 text-emerald-400" />
+                    <div>
+                        <div className="relative bg-gradient-to-br from-emerald-500/10 to-zinc-900 border border-emerald-500/30 rounded-3xl p-8 md:p-10">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="w-11 h-11 rounded-xl bg-emerald-500/20 flex items-center justify-center ring-1 ring-emerald-500/30">
+                                    <Shield className="w-5 h-5 text-emerald-400" />
+                                </div>
+                                <div>
+                                    <p className="text-xs font-semibold tracking-widest uppercase text-emerald-400 mb-0.5">
+                                        Inside Your Walls
+                                    </p>
+                                    <h3 className="text-2xl font-bold text-white">Stays In</h3>
+                                </div>
                             </div>
-                            <div>
-                                <p className="text-xs font-semibold tracking-widest uppercase text-emerald-400 mb-0.5">
-                                    Inside Your Walls
-                                </p>
-                                <h3 className="text-2xl font-bold text-white">Stays In</h3>
-                            </div>
-                        </div>
-                        <p className="text-sm text-zinc-400 mb-6 leading-relaxed">
-                            Processed, classified, and stored locally within your
-                            infrastructure. Never transmitted to an external model.
-                        </p>
-                        <ul className="space-y-3">
-                            {stays.map((item, i) => (
-                                <li key={i} className="flex items-start gap-3">
-                                    <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                        <Check className="w-3 h-3 text-emerald-400" strokeWidth={3} />
-                                    </div>
-                                    <span className="text-sm text-zinc-200 leading-relaxed">
+                            <p className="text-sm text-zinc-400 mb-6 leading-relaxed">
+                                Processed, classified, and stored locally within your
+                                infrastructure. Never transmitted to an external model.
+                            </p>
+                            <ul className="space-y-3">
+                                {stays.map((item, i) => (
+                                    <li key={i} className="flex items-start gap-3">
+                                        <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                            <Check className="w-3 h-3 text-emerald-400" strokeWidth={3} />
+                                        </div>
+                                        <span className="text-sm text-zinc-200 leading-relaxed">
                                         {item}
                                     </span>
-                                </li>
-                            ))}
-                        </ul>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
 
                     {/* Middle: Boundary indicator */}
-                    <div className="hidden md:flex flex-col items-center justify-center px-4 relative">
+                    <div className="hidden md:flex flex-col items-center justify-center px-4 relative h-full">
                         {/* Vertical dashed line */}
                         <div className="absolute inset-y-8 left-1/2 -translate-x-1/2 w-px border-l-2 border-dashed border-zinc-700" />
                         <div className="relative z-10 flex flex-col items-center gap-3">

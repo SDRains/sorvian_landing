@@ -166,7 +166,9 @@ function PricingTiers() {
                                 {tier.highlighted && (
                                     <>
                                         <div className="absolute top-0 left-8 right-8 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-b-full" />
-                                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-500 text-zinc-950 text-[10px] font-bold px-3 py-1 rounded-full tracking-widest uppercase">
+
+                                        {/* Recommended pill */}
+                                        <div className="absolute top-3 right-8 bg-emerald-500 text-zinc-950 text-xs font-bold px-3 py-1 rounded-full tracking-wider uppercase">
                                             Recommended
                                         </div>
                                     </>

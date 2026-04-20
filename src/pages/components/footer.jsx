@@ -92,17 +92,17 @@ function Footer() {
                         <h4 className="text-white font-semibold mb-4">Resources</h4>
                         <ul className="space-y-3">
                             <li>
-                                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
+                                <a href="/documentation" className="text-zinc-400 hover:text-white transition-colors">
                                     Documentation
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
+                                <a href="/api-reference" className="text-zinc-400 hover:text-white transition-colors">
                                     API Reference
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-zinc-400 hover:text-white transition-colors">
+                                <a href="/status" className="text-zinc-400 hover:text-white transition-colors">
                                     Status
                                 </a>
                             </li>
