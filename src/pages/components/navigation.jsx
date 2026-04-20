@@ -108,7 +108,7 @@ function Navigation() {
         : "text-zinc-800 hover:text-emerald-600";
 
     const demoBtn = navIsDark
-        ? "bg-emerald-500 text-zinc-950 hover:bg-emerald-400"
+        ? "bg-emerald-500 text-white hover:bg-emerald-400"
         : "bg-zinc-900 text-white hover:bg-zinc-800";
 
     const mobileMenuBtn = navIsDark ? "text-white" : "text-zinc-900";
@@ -163,7 +163,7 @@ function Navigation() {
                                 Sign In
                             </button>
                             <button
-                                className={`cursor-pointer px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-2 ${demoBtn}`}
+                                className={`cursor-pointer px-4 py-2 rounded-full text-sm font-bold transition-colors flex items-center gap-2 ${demoBtn}`}
                             >
                                 Book a Demo
                                 <ArrowRight className="w-4 h-4" />
