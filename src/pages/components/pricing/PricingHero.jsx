@@ -5,17 +5,34 @@ import { Tags, ArrowRight, ShieldCheck } from "lucide-react";
 function PricingHero() {
     return (
         <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-zinc-950 pt-32 pb-20">
+            {/* Background — "Tiers" theme: ascending horizontal bands + vertical shaft of light */}
             <div className="absolute inset-0">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-emerald-500/10 rounded-full blur-3xl" />
-                <div className="absolute top-0 right-1/3 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-3xl" />
+                {/* Soft ascending color wash (darker at top, hint of emerald near bottom) */}
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        background:
+                            "linear-gradient(180deg, transparent 0%, transparent 50%, rgba(16,185,129,0.04) 80%, rgba(16,185,129,0.08) 100%)",
+                    }}
+                />
+
+                {/* Vertical shaft of light — a "tier ladder" anchor */}
+                <div className="absolute top-0 bottom-0 right-1/4 w-[260px] bg-gradient-to-b from-emerald-500/15 via-emerald-500/8 to-transparent blur-3xl" />
+                <div className="absolute top-0 bottom-0 left-1/4 w-[200px] bg-gradient-to-b from-cyan-500/10 via-cyan-500/5 to-transparent blur-3xl" />
+
+                {/* Repeating horizontal "tier" lines (subtle stratification) */}
                 <div
                     className="absolute inset-0 opacity-[0.04]"
                     style={{
                         backgroundImage:
-                            "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
-                        backgroundSize: "56px 56px",
+                            "repeating-linear-gradient(0deg, transparent, transparent 96px, rgba(255,255,255,0.7) 96px, rgba(255,255,255,0.7) 97px)",
                     }}
                 />
+
+                {/* Soft floor glow */}
+                <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-emerald-500/10 rounded-full blur-3xl" />
+
+                {/* Top aurora */}
                 <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-emerald-500/10 via-transparent to-transparent" />
             </div>
 

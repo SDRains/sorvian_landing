@@ -5,21 +5,41 @@ import { Sparkles, ArrowRight, Play, Layers } from "lucide-react";
 function ProductHero() {
     return (
         <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-zinc-950 pt-32 pb-24">
-            {/* Background layers */}
+            {/* Background — "Flow" theme: corner-to-corner pipeline gradient + dots */}
             <div className="absolute inset-0">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[1100px] bg-emerald-500/10 rounded-full blur-3xl" />
-                <div className="absolute top-0 right-1/3 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-3xl" />
-
+                {/* Diagonal flow gradient */}
                 <div
-                    className="absolute inset-0 opacity-[0.04]"
+                    className="absolute inset-0"
                     style={{
-                        backgroundImage:
-                            "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
-                        backgroundSize: "56px 56px",
+                        background:
+                            "linear-gradient(115deg, transparent 0%, rgba(16,185,129,0.10) 28%, transparent 48%, rgba(6,182,212,0.08) 68%, transparent 100%)",
                     }}
                 />
 
+                {/* Corner blobs anchoring the flow direction */}
+                <div className="absolute -top-32 -left-32 w-[700px] h-[700px] bg-emerald-500/15 rounded-full blur-3xl" />
+                <div className="absolute -bottom-32 -right-32 w-[700px] h-[700px] bg-cyan-500/12 rounded-full blur-3xl" />
+
+                {/* Dot grid */}
+                <div
+                    className="absolute inset-0 opacity-[0.06]"
+                    style={{
+                        backgroundImage:
+                            "radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)",
+                        backgroundSize: "32px 32px",
+                    }}
+                />
+
+                {/* Faint diagonal stripes for direction */}
+                <div
+                    className="absolute inset-0 opacity-[0.03]"
+                    style={{
+                        backgroundImage:
+                            "repeating-linear-gradient(115deg, transparent, transparent 110px, rgba(255,255,255,0.6) 110px, rgba(255,255,255,0.6) 111px)",
+                    }}
+                />
+
+                {/* Top emerald aurora (preserved for nav contrast) */}
                 <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-emerald-500/10 via-transparent to-transparent" />
             </div>
 

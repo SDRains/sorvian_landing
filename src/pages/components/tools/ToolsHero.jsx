@@ -5,21 +5,25 @@ import { Wrench, ArrowRight, ShieldCheck } from "lucide-react";
 function ToolsHero() {
     return (
         <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-zinc-950 pt-32 pb-24">
-            {/* Background layers */}
+            {/* Background — "Triad" theme: three colored corner glows for the three tools */}
             <div className="absolute inset-0">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[1100px] bg-emerald-500/10 rounded-full blur-3xl" />
-                <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 right-1/3 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-3xl" />
+                {/* Three corner glows — emerald (KB RAG), indigo (Security), amber (Doc Analyzer) */}
+                <div className="absolute -top-32 -left-32 w-[650px] h-[650px] bg-emerald-500/15 rounded-full blur-3xl" />
+                <div className="absolute -top-32 -right-32 w-[550px] h-[550px] bg-amber-500/12 rounded-full blur-3xl" />
+                <div className="absolute -bottom-32 left-1/3 w-[650px] h-[650px] bg-indigo-500/12 rounded-full blur-3xl" />
 
+                {/* Offset double-layer dot pattern (more textural than the standard grid) */}
                 <div
-                    className="absolute inset-0 opacity-[0.04]"
+                    className="absolute inset-0 opacity-[0.05]"
                     style={{
                         backgroundImage:
-                            "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
-                        backgroundSize: "56px 56px",
+                            "radial-gradient(circle, rgba(255,255,255,1) 1.5px, transparent 1.5px), radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)",
+                        backgroundSize: "44px 44px, 44px 44px",
+                        backgroundPosition: "0 0, 22px 22px",
                     }}
                 />
 
+                {/* Top aurora */}
                 <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-emerald-500/10 via-transparent to-transparent" />
             </div>
 

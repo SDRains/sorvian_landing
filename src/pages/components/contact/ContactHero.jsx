@@ -5,17 +5,23 @@ import { MessageSquare, ArrowRight, Clock } from "lucide-react";
 function ContactHero() {
     return (
         <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-zinc-950 pt-32 pb-20">
+            {/* Background — "Ripple" theme: concentric rings emanating outward */}
             <div className="absolute inset-0">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-emerald-500/10 rounded-full blur-3xl" />
-                <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-3xl" />
-                <div
-                    className="absolute inset-0 opacity-[0.04]"
-                    style={{
-                        backgroundImage:
-                            "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
-                        backgroundSize: "56px 56px",
-                    }}
-                />
+                {/* Center ripple glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-emerald-500/20 rounded-full blur-3xl" />
+
+                {/* Concentric ring stack — sonar / speech ripple */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full border border-emerald-500/30" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-emerald-500/20" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full border border-emerald-500/12" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1300px] h-[1300px] rounded-full border border-emerald-500/8" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1600px] h-[1600px] rounded-full border border-emerald-500/5" />
+
+                {/* Soft warm satellite glows */}
+                <div className="absolute top-1/4 right-1/5 w-[400px] h-[400px] bg-teal-500/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-1/4 left-1/5 w-[400px] h-[400px] bg-cyan-500/8 rounded-full blur-3xl" />
+
+                {/* Top aurora */}
                 <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-emerald-500/10 via-transparent to-transparent" />
             </div>
 
