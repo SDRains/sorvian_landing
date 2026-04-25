@@ -121,10 +121,10 @@ function Footer() {
                         © 2026 Sorvian AI. All rights reserved.
                     </p>
                     <div className="flex items-center gap-6">
-                        <a href="#" className="text-zinc-500 hover:text-white text-sm transition-colors">
+                        <a href="/privacy" className="text-zinc-500 hover:text-white text-sm transition-colors">
                             Privacy Policy
                         </a>
-                        <a href="#" className="text-zinc-500 hover:text-white text-sm transition-colors">
+                        <a href="/terms" className="text-zinc-500 hover:text-white text-sm transition-colors">
                             Terms of Service
                         </a>
                     </div>
